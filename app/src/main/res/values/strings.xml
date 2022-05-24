@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">KoinTro</string>
+    <string name="title_activity_todo_list_screen">TodoListScreen</string>
+</resources>
