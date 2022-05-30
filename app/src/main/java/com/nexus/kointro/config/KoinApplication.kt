@@ -16,7 +16,8 @@ class KoinApplication : Application() {
         LocalDataSource.initializeStore(this)
 
         // start dependency injection
-        // this is done because the modules will need access to the database
+        // this is done after setting up the datastore
+        // because the modules will need access to the database
         startKoin {
             androidLogger()
             androidContext(this@KoinApplication)

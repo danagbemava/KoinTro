@@ -1,9 +1,7 @@
 package com.nexus.kointro.core_features.todo_list
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.nexus.kointro.shared.models.Todo
 import com.nexus.kointro.shared.repos.TodosRepo
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -20,11 +18,16 @@ class TodoListViewModel(
     }
 
     private fun getTodos() {
-        todosRepo.getAllTodos().onEach { todos ->
-            _todosState.value = TodosListState.NonEmptyTodosState(todos)
-        }.onEmpty {
-            _todosState.value = TodosListState.EmptyTodosState
-        }.launchIn(viewModelScope)
+        viewModelScope.launch {
+            todosRepo.getAllTodos().collectLatest {
+                if(it.isEmpty()){
+                    _todosState.value = TodosListState.EmptyTodosState
+                } else {
+                    _todosState.value = TodosListState.NonEmptyTodosState(it)
+                }
+            }
+        }
+
     }
 
     companion object {

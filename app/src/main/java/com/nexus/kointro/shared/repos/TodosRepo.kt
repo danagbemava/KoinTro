@@ -5,9 +5,11 @@ import kotlinx.coroutines.flow.Flow
 
 interface TodosRepo {
 
-    fun addTodo(todo: Todo)
+    suspend fun addTodo(todo: Todo)
 
     fun getAllTodos(): Flow<List<Todo>>
 
-    fun deleteTodo(id: Long)
+    suspend fun deleteTodo(id: Long)
+
+    suspend fun getTodoById(id: Long): Todo?
 }
