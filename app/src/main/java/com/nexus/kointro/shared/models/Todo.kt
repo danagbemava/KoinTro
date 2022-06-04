@@ -8,5 +8,7 @@ data class Todo(
     @Id
     var id: Long = 0,
     val name: String?,
-    val description: String?
+    val description: String?,
+    val completed: Boolean = false,
+    val isFavorite: Boolean = false,
 )

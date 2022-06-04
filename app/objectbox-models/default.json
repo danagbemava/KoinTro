@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:551113574970030661",
-      "lastPropertyId": "3:8621944140703002509",
+      "lastPropertyId": "5:8529414317660648441",
       "name": "Todo",
       "properties": [
         {
@@ -23,6 +23,16 @@
           "id": "3:8621944140703002509",
           "name": "description",
           "type": 9
+        },
+        {
+          "id": "4:1340386193724831017",
+          "name": "completed",
+          "type": 1
+        },
+        {
+          "id": "5:8529414317660648441",
+          "name": "isFavorite",
+          "type": 1
         }
       ],
       "relations": []
